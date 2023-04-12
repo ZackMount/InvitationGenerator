@@ -62,22 +62,15 @@ namespace NSSCTF.InvitationGenerator
             XElement poster = doc.Element("Poster");
 
             PosterStyle ps = new PosterStyle();
-            Font = (string)poster.Element("Font").Attribute("value");
-            FontSize = (int)poster.Element("FontSize").Attribute("value");
-            FontColor = (string)poster.Element("FontColor").Attribute("value");
-            Poster = (string)poster.Element("Poster").Attribute("value");
-            Gravity = GetEnumValue<Gravity>(poster.Element("Gravity"), "value");
-            AvatarStyle = GetEnumValue<AvatarStyleType>(poster.Element("AvatarStyle"), "value");
-            
-
-            string[] avatarSize = ((string)poster.Element("AvatarSize").Attribute("value")).Split('x');
-            AvatarSize = new Size(int.Parse(avatarSize[0]), int.Parse(avatarSize[1]));
-
-            string[] avatarPosition = ((string)poster.Element("AvatarPosition").Attribute("value")).Split(',');
-            AvatarPosition = new Point(int.Parse(avatarPosition[0]), int.Parse(avatarPosition[1]));
-
-            string[] usernamePosition = ((string)poster.Element("UsernamePosition").Attribute("value")).Split(',');
-            UsernamePosition = new Point(int.Parse(usernamePosition[0]), int.Parse(usernamePosition[1]));
+            Font = (string)poster.Element("Font").Attribute("Value");
+            FontSize = (int)poster.Element("FontSize").Attribute("Value");
+            FontColor = (string)poster.Element("FontColor").Attribute("Value");
+            Poster = (string)poster.Element("Poster").Attribute("File");
+            Gravity = GetEnumValue<Gravity>(poster.Element("Gravity"), "Value");
+            AvatarStyle = GetEnumValue<AvatarStyleType>(poster.Element("AvatarStyle"), "Value");
+            AvatarSize = new Size((int)poster.Element("AvatarSize").Attribute("Width"), (int)poster.Element("AvatarSize").Attribute("Height"));
+            AvatarPosition = new Point((int)poster.Element("AvatarPosition").Attribute("X"), (int)poster.Element("AvatarPosition").Attribute("Y"));
+            UsernamePosition = new Point((int)poster.Element("UsernamePosition").Attribute("X"), (int)poster.Element("UsernamePosition").Attribute("Y"));
         }
         private static T GetEnumValue<T>(XElement element, string attributeName) where T : Enum
         {

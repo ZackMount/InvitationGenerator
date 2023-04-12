@@ -25,15 +25,15 @@ namespace NSSCTF.InvitationGenerator
         {
             XDocument doc = new XDocument(
                             new XElement("Poster",
-                            new XElement("Font", new XAttribute("value", ps.Font)),
-                            new XElement("FontSize", new XAttribute("value", ps.FontSize)),
-                            new XElement("FontColor", new XAttribute("value", ps.FontColor)),
-                            new XElement("Poster", new XAttribute("value", ps.Poster)),
-                            new XElement("Gravity", new XAttribute("value", ps.Gravity)),
-                            new XElement("AvatarStyle", new XAttribute("value", ps.AvatarStyle)),
-                            new XElement("AvatarSize", new XAttribute("value", $"{ps.AvatarSize.Width}x{ps.AvatarSize.Height}")),
-                            new XElement("AvatarPosition", new XAttribute("value", $"{ps.AvatarPosition.X},{ps.AvatarPosition.Y}")),
-                            new XElement("UsernamePosition", new XAttribute("value", $"{ps.UsernamePosition.X},{ps.UsernamePosition.Y}"))
+                            new XElement("Font", new XAttribute("Value", ps.Font)),
+                            new XElement("FontSize", new XAttribute("Value", ps.FontSize)),
+                            new XElement("FontColor", new XAttribute("Value", ps.FontColor)),
+                            new XElement("Poster", new XAttribute("File", ps.Poster)),
+                            new XElement("Gravity", new XAttribute("Value", ps.Gravity)),
+                            new XElement("AvatarStyle", new XAttribute("Value", ps.AvatarStyle)),
+                            new XElement("AvatarSize", new XAttribute("Width", ps.AvatarSize.Width), new XAttribute("Height", ps.AvatarSize.Width)),
+                            new XElement("AvatarPosition", new XAttribute("X", ps.AvatarPosition.X), new XAttribute("Y", ps.AvatarPosition.Y)),
+                            new XElement("UsernamePosition", new XAttribute("X", ps.UsernamePosition.X), new XAttribute("Y", ps.UsernamePosition.Y))
             ));
             doc.Save(path);
         }
