@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Magick.NET-Q16-HDRI-AnyCPU" Version="13.0.1" />
+    <PackageReference Include="Magick.NET-Q16-HDRI-AnyCPU" Version="14.7.0" />
   </ItemGroup>
 
   <ItemGroup>
